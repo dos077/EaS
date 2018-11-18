@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background-color: #9ec2e4;
+    -webkit-font-smoothing: antialiased;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+div {	margin: 0; padding: 0; }
+div.clear { clear: both;}
+div.body {
+    margin: 30px auto 0;
+    width: 582px;
+    height: 682px;
+    border-radius: 30px;
+    background-color: #a1000a;
+    display: grid;
+    grid-template-columns: 30px 522px 30px;
+}
