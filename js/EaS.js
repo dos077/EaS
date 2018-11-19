@@ -1,4 +1,4 @@
-function draw(e) {
+function draw() {
     var side = Number(document.querySelector('#drawSize').querySelector('.selected').innerHTML);
     var drawMode = document.querySelector('#drawMode').querySelector('.selected').innerHTML;
     var canvas = document.querySelector('#canvas');
@@ -43,5 +43,75 @@ function reset() {
     for(i=0;i<dots.length;i++) {
         dots[i].classList.remove('shade');
         dots[i].innerHTML = ' ';
+    }
+}
+
+function scrollLeftUp() {
+    var display = document.querySelectorAll('.left > .display > span');
+    var current;
+    var target;
+    for(i=0;i<display.length;i++) {
+        if(display[i].classList.contains('selected')) {
+            current = i;
+        }
+    }
+    if(current>0) {
+        target = current - 1;
+        console.log(target + ', current: ' + current);
+        display[current].classList.remove('selected');
+        display[target].classList.add('selected');
+        draw();
+    }
+}
+function scrollLeftDown() {
+    var display = document.querySelectorAll('.left > .display > span');
+    var current;
+    var target;
+    for(i=0;i<display.length;i++) {
+        if(display[i].classList.contains('selected')) {
+            current = i;
+        }
+    }
+    if( current < (display.length-1) ) {
+        target = current + 1;
+        console.log(target + ', current: ' + current);
+        display[current].classList.remove('selected');
+        display[target].classList.add('selected');
+        draw();
+    }
+}
+
+function scrollRightUp() {
+    var display = document.querySelectorAll('.right > .display > span');
+    var current;
+    var target;
+    for(i=0;i<display.length;i++) {
+        if(display[i].classList.contains('selected')) {
+            current = i;
+        }
+    }
+    if(current>0) {
+        target = current - 1;
+        console.log(target + ', current: ' + current);
+        display[current].classList.remove('selected');
+        display[target].classList.add('selected');
+        draw();
+    }
+}
+function scrollRightDown() {
+    var display = document.querySelectorAll('.right > .display > span');
+    var current;
+    var target;
+    for(i=0;i<display.length;i++) {
+        if(display[i].classList.contains('selected')) {
+            current = i;
+        }
+    }
+    if( current < (display.length-1) ) {
+        target = current + 1;
+        console.log(target + ', current: ' + current);
+        display[current].classList.remove('selected');
+        display[target].classList.add('selected');
+        draw();
     }
 }
