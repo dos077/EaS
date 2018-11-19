@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src=""></script>
+        <script src="js/EaS.js"></script>
 		<link rel="stylesheet" href="css/EaS.css">
     </head>
     <body>
@@ -11,16 +11,19 @@
             <div class="nav">
                 <div class="left">
                     <div class="up" ><img id="leftUp" src="img/left.png"></div>
-                    <div class="display"><span class="selected">Classic</span><span>Greyscale</span><span>Color</span></div>
+                    <div class="display" id="drawMode"><span class="selected">Classic</span><span>Greyscale</span><span>Color</span></div>
                     <div class="down"><img id="leftDown" src="img/right.png"></div>
                 </div>
                 <div class="mid"><div class="button" id="Reset">Reset</div></div>
                 <div class="right">
                     <div class="up"><img id="rightUp" src="img/left.png"></div>
-                    <div class="display"><span>8</span><span class="selected">16</span><span>32</span><span>64</span><span>128</span></div>
+                    <div class="display" id="drawSize"><span>8</span><span class="selected">16</span><span>32</span><span>64</span><span>128</span></div>
                     <div class="down"><img id="rightDown" src="img/right.png"></div>
                 </div>
             </div>
         </div>
+        <script>
+            draw(16);
+        </script>
     </body>
 </html>

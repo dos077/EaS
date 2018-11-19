@@ -37,6 +37,13 @@ div#canvas {
     height: 512px;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    display: grid;
+}
+div.dot {
+    display: inline-block;
+}
+div.shade {
+    background-color: #333333;
 }
 div.body .nav {
     display: grid;
