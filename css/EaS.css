@@ -109,12 +109,32 @@ div.body .nav .up {
     height: 30px;
     grid-column: 1 / 2 ;
     grid-row: 1 / 2;
+    border-radius: 15px;
+    background-color: #906a34;
+}
+div.body .nav .up .arrow {
+    width: 0;
+    height: 0;
+    margin: 8px 0 0 6px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 14px solid #fffec0;
 }
 div.body .nav .down {
     width: 30px;
     height: 30px;
     grid-column: 3 / 4 ;
     grid-row: 1 / 2;
+    border-radius: 15px;
+    background-color: #906a34;
+}
+div.body .nav .down .arrow {
+    width: 0;
+    height: 0;
+    margin: 8px 0 0 10px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 14px solid #fffec0;
 }
 div.body .nav .display{
     grid-column: 2 / 3 ;
@@ -145,7 +165,7 @@ div.body .nav img {
     width: 30px;
     height: 30px;
 }
-div.body .nav .button {
+div.body .nav .reset {
     width: 100px;
     border-radius: 10px;
     height: 35px;
@@ -156,6 +176,8 @@ div.body .nav .button {
     text-align: center;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+}
+div.body .nav .button {
     cursor: pointer;
     box-shadow: inset 2px 2px 3px 0 rgba(255,255,255,0.33), inset -2px -2px 3px 0 rgba(0,0,0,0.16);
 }
