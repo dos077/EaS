@@ -2,18 +2,19 @@ function draw() {
     var side = Number(document.querySelector('#drawSize').querySelector('.selected').innerHTML);
     var drawMode = document.querySelector('#drawMode').querySelector('.selected').innerHTML;
     var canvas = document.querySelector('#canvas');
-    var divHTML ;
-    if (drawMode == 'Classic') { divHTML = '<div class="dot" onmouseover="shade(this)"></div>'; }
-    if (drawMode == 'Greyscale') { divHTML = '<div class="dot" onmouseover="grey(this)"></div>'; }
-    if (drawMode == 'Color') { divHTML = '<div class="dot" onmouseover="color(this)"></div>'; }
     var area = side * side ;
     var gridSize = 512 / Number(side);
-    var gridStyle = 'repeat(' + side +', ' + gridSize + 'px)';
+    var gridStyle = 'repeat(' + side +', 1fr)';
     canvas.style.setProperty('grid-template-columns', gridStyle);
     canvas.style.setProperty('grid-template-rows', gridStyle);
     canvas.innerHTML = ' ';
     for(i=0;i<area;i++) {
-        canvas.innerHTML = canvas.innerHTML + divHTML;
+        var dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (drawMode == 'Classic') { dot.setAttribute('onmouseover','shade(this)');}
+        if (drawMode == 'Greyscale') { dot.setAttribute('onmouseover','grey(this)'); }
+        if (drawMode == 'Color') { dot.setAttribute('onmouseover','color(this)'); }
+        canvas.appendChild(dot);
     }
 }
 
@@ -38,7 +39,6 @@ function color(e) {
 }
 
 function reset() {
-    console.log('resetting...');
     var dots = document.querySelectorAll('.dot');
     for(i=0;i<dots.length;i++) {
         dots[i].classList.remove('shade');
@@ -57,7 +57,6 @@ function scrollLeftUp() {
     }
     if(current>0) {
         target = current - 1;
-        console.log(target + ', current: ' + current);
         display[current].classList.remove('selected');
         display[target].classList.add('selected');
         draw();
@@ -74,7 +73,6 @@ function scrollLeftDown() {
     }
     if( current < (display.length-1) ) {
         target = current + 1;
-        console.log(target + ', current: ' + current);
         display[current].classList.remove('selected');
         display[target].classList.add('selected');
         draw();
@@ -92,7 +90,6 @@ function scrollRightUp() {
     }
     if(current>0) {
         target = current - 1;
-        console.log(target + ', current: ' + current);
         display[current].classList.remove('selected');
         display[target].classList.add('selected');
         draw();
@@ -109,7 +106,6 @@ function scrollRightDown() {
     }
     if( current < (display.length-1) ) {
         target = current + 1;
-        console.log(target + ', current: ' + current);
         display[current].classList.remove('selected');
         display[target].classList.add('selected');
         draw();
