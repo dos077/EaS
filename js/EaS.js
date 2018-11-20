@@ -11,11 +11,13 @@ function draw() {
     for(i=0;i<area;i++) {
         var dot = document.createElement('div');
         dot.classList.add('dot');
+        dot.setAttribute('id',i);
         if (drawMode == 'Classic') { dot.setAttribute('onmouseover','shade(this)');}
         if (drawMode == 'Greyscale') { dot.setAttribute('onmouseover','grey(this)'); }
         if (drawMode == 'Color') { dot.setAttribute('onmouseover','color(this)'); }
         canvas.appendChild(dot);
     }
+    currentDot = (area / 2) - (side / 2);
 }
 
 function shade(e) {
@@ -112,5 +114,33 @@ function scrollRightDown() {
         display[current].classList.remove('selected');
         display[target].classList.add('selected');
         draw();
+    }
+}
+
+//Below are patched codes for keyboard mode
+
+function keyShade(i) {
+    var e = document.querySelectorAll('.dot')[i];
+    e.classList.add('shade');
+}
+function keyGrey(i) {
+    var e = document.querySelectorAll('.dot')[i];
+    var greyDot = document.createElement('div');
+    greyDot.classList.add('grey');
+    greyLevel = e.querySelectorAll('.grey').length
+    if(greyLevel<11){e.appendChild(greyDot);}
+}
+function keyColor(i) {
+    var e = document.querySelectorAll('.dot')[i];
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    var colorDot = document.createElement('div');
+    colorDot.classList.add('color');
+    colorDot.style.backgroundColor = color;
+    if (e.innerHTML.length < 2) {
+        e.appendChild(colorDot); 
     }
 }
