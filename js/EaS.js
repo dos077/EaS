@@ -22,9 +22,10 @@ function shade(e) {
     e.classList.add('shade');
 }
 function grey(e) {
-    greyHTML = '<div class="grey"></div>';
+    var greyDot = document.createElement('div');
+    greyDot.classList.add('grey');
     greyLevel = e.querySelectorAll('.grey').length
-    if(greyLevel<11){e.innerHTML = e.innerHTML + greyHTML;}
+    if(greyLevel<11){e.appendChild(greyDot);}
 }
 function color(e) {
     var letters = '0123456789ABCDEF';
@@ -32,9 +33,11 @@ function color(e) {
     for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
-    colorHTML = '<div class="color" style="background-color: ' + color + '"></div>';
+    var colorDot = document.createElement('div');
+    colorDot.classList.add('color');
+    colorDot.style.backgroundColor = color;
     if (e.innerHTML.length < 2) {
-        e.innerHTML = colorHTML; 
+        e.appendChild(colorDot); 
     }
 }
 
